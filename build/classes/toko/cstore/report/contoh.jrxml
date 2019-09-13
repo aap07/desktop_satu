@@ -1,0 +1,217 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="130" pageHeight="140" columnWidth="120" leftMargin="5" rightMargin="5" topMargin="5" bottomMargin="5" uuid="19660f8d-d9f6-4147-9fd7-fbe671cb0e7f">
+	<property name="ireport.zoom" value="7.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="135"/>
+	<style name="table">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_TH" mode="Opaque" backcolor="#FAEBD7">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_CH" mode="Opaque" backcolor="#FFE4BF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<subDataset name="Table Dataset 1" uuid="33f1d77e-1162-4349-991f-78f1e7ff6bd3"/>
+	<parameter name="print_no" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="print_bayar" class="java.lang.Integer">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="print_kembali" class="java.lang.Integer">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT * FROM tbl_transaksi WHERE no_transaksi = $P{print_no};]]>
+	</queryString>
+	<field name="no" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="no_transaksi" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="tgl_transaksi" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="kd_barang" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="nm_barang" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="jmlh_barang" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="hrg_barang" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="total" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="nama_kasir" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<variable name="jumlah" class="java.lang.Integer" calculation="Sum">
+		<variableExpression><![CDATA[$F{total}]]></variableExpression>
+	</variable>
+	<title>
+		<band height="20" splitType="Stretch">
+			<staticText>
+				<reportElement x="33" y="-1" width="59" height="10" uuid="e0561a71-7812-4d5f-8bd2-0c9f2bb22bb5"/>
+				<textElement textAlignment="Center" verticalAlignment="Bottom">
+					<font fontName="Transformers Movie" size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[C-Store07]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="11" width="120" height="9" uuid="9f0c7609-cabc-46ff-8cd0-933adad419e9"/>
+				<textElement textAlignment="Center">
+					<font fontName="Tahoma" size="3" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Jl. Swadaya XIV No:53 Rt:014/Rw:07, Pulo Gebang, Cakung, Jakarta Timur
+antoniusadipratomo@yahoo.com - 085781197518]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="15" splitType="Stretch">
+			<line>
+				<reportElement x="0" y="0" width="120" height="1" uuid="741b17a8-0c1a-42d5-bd2b-2ac4e8380531"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineStyle="Dashed"/>
+				</graphicElement>
+			</line>
+			<line>
+				<reportElement x="0" y="13" width="120" height="1" uuid="9e8c27c6-a5a2-4d9b-9128-1578a435f450"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineStyle="Dashed"/>
+				</graphicElement>
+			</line>
+			<textField>
+				<reportElement x="88" y="1" width="32" height="6" uuid="92a7df37-ac2b-4358-80ae-4e471e29c059"/>
+				<textElement textAlignment="Right">
+					<font size="4" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{nama_kasir}]]></textFieldExpression>
+			</textField>
+			<textField pattern="EEEEE, dd-MMM-yyyy">
+				<reportElement x="0" y="1" width="45" height="6" uuid="5e245e46-5e88-4a10-9245-ab6d7b6cc77d"/>
+				<textElement>
+					<font size="4" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="88" y="7" width="32" height="6" uuid="25d92b47-0338-4f73-b815-fc748813ecb3"/>
+				<textElement textAlignment="Right">
+					<font size="4" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{print_no}]]></textFieldExpression>
+			</textField>
+			<textField pattern="h:mm:ss a">
+				<reportElement x="0" y="7" width="45" height="6" uuid="71016526-ea20-4906-b613-747750d7f0db"/>
+				<textElement>
+					<font size="4" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageHeader>
+	<detail>
+		<band height="7" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="0" width="48" height="6" uuid="083ac7a9-4a3e-4609-aa70-4b29a9dadfb3"/>
+				<textElement textAlignment="Left">
+					<font size="4" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{nm_barang}]]></textFieldExpression>
+			</textField>
+			<textField pattern="">
+				<reportElement x="47" y="0" width="11" height="6" uuid="ae5fbfee-7a38-4373-9df1-e8717666457c"/>
+				<textElement textAlignment="Left">
+					<font size="4" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{jmlh_barang}]]></textFieldExpression>
+			</textField>
+			<textField pattern="¤ #,##0">
+				<reportElement x="57" y="0" width="32" height="6" uuid="f941925a-5218-427a-bf26-d482e46583b8"/>
+				<textElement textAlignment="Left">
+					<font size="4" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{hrg_barang}]]></textFieldExpression>
+			</textField>
+			<textField pattern="¤ #,##0">
+				<reportElement x="88" y="0" width="32" height="6" uuid="f28da806-295e-4f63-a18b-b4fa12dd6e2d"/>
+				<textElement textAlignment="Left">
+					<font size="4" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{total}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<summary>
+		<band height="30" splitType="Stretch">
+			<textField pattern="¤ #,##0">
+				<reportElement x="88" y="1" width="32" height="6" uuid="4f9953c2-b050-4b25-af0c-ad2a4d82e1fd"/>
+				<textElement textAlignment="Left">
+					<font size="4" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{jumlah}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="64" y="1" width="23" height="6" uuid="de226d26-017c-4cef-9006-c58197cf5dc5"/>
+				<textElement textAlignment="Right" verticalAlignment="Top">
+					<font size="4" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Total :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="64" y="7" width="23" height="6" uuid="5392cf6d-5648-49df-9c7f-fd5acc3e594c"/>
+				<textElement textAlignment="Right" verticalAlignment="Top">
+					<font size="4" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Bayar :]]></text>
+			</staticText>
+			<textField pattern="¤ #,##0">
+				<reportElement x="88" y="7" width="32" height="6" uuid="8f38cc2d-3874-47a4-ba80-00c1e3925d4d"/>
+				<textElement textAlignment="Left">
+					<font size="4" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{print_bayar}]]></textFieldExpression>
+			</textField>
+			<textField pattern="¤ #,##0">
+				<reportElement x="88" y="13" width="32" height="6" uuid="fab7206e-09f0-4613-9d0e-a06e2854ef10"/>
+				<textElement textAlignment="Left">
+					<font size="4" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{print_kembali}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="64" y="13" width="23" height="6" uuid="e6f3f4b4-0f7c-4cdb-a86f-0e0c4b05c0cb"/>
+				<textElement textAlignment="Right" verticalAlignment="Top">
+					<font size="4" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Kembali :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="29" y="20" width="63" height="10" uuid="dd2380ce-644c-48d9-bfb2-bb339ea6b7f3"/>
+				<textElement textAlignment="Center" verticalAlignment="Bottom">
+					<font fontName="Transformers Movie" size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Terima Kasih]]></text>
+			</staticText>
+		</band>
+	</summary>
+</jasperReport>
